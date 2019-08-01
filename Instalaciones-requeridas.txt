@@ -1,0 +1,22 @@
+POSTMAN
+https://www.getpostman.com/downloads/
+
+VISUAL STUDIO CODE
+https://code.visualstudio.com/
+
+Plugins de vs code
+	HTML CSS Support 		-- ecmel.vscode-html-css		-- ecmel
+	JavaScript (ES6) code snippets 	-- xabikos.javascriptsnippets		-- charalampos karypidis"
+	JS-CSS-HTML Formatter 		-- lonefy.vscode-js-css-html-formatter	-- lonefy
+	Terminal 			-- formulahendry.terminal		-- Jun Han
+	TypeScript Importer		-- pmneo.tsimporter 			-- pmneo
+
+NODE JS 
+	Version 10.16.0 LTS
+
+instalar NODEMON en consoloa como administrador
+	npm install -g nodemon
+	
+	Al momento de realizar el tutorial la versión de nodemon es
+	>nodemon -v
+		1.19.1
