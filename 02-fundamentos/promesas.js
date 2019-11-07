@@ -58,15 +58,26 @@ let getSalario = (empleado) => {
     });
 }
 
-getEmpleado(2).then( (empleado) => {
-    // console.log('El empleado de la BD es: ', empleado);
+// getEmpleado(2).then( (empleado) => {
+//     // console.log('El empleado de la BD es: ', empleado);
 
-    getSalario(empleado).then( (resp) => {
-        console.log('El salario de ', resp.nombre, ' es de ', resp.salario );
-    }, (err) => {
-        console.log(err);
-    });
+//     getSalario(empleado).then( (resp) => {
+//         console.log('El salario de ', resp.nombre, ' es de ', resp.salario );
+//     }, (err) => {
+//         console.log(err);
+//     });
 
-}, (err) => {
+// }, (err) => {
+//     console.log(err);
+// });
+
+// Promesas en cadena 
+getEmpleado(4).then( (empleado) => {
+    return getSalario(empleado);
+})
+.then( (resp) => {
+    console.log('El salario de ', resp.nombre, ' es de ', resp.salario);
+})
+.catch ( (err) => {
     console.log(err);
-});
+})
