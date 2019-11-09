@@ -1,16 +1,15 @@
-// Requireds ever on the first line
-const fs = require('fs');
-// const fs = require('express');
-// const fs = require('./fs');
+// const multiplicar = require('./multiplicar/multiplicar.js');
+const { crearArchivo } = require('./multiplicar/multiplicar.js');
 
-let base = 2;
-let data = '';
+let base = 4;
 
-for (let i = 1; i <= 10; i++) {
-    data += (base + ' * ' + i + ' = ' + (base * i) + '\n');    
-}
+// console.log(module);
+// console.log(multiplicar);
 
-fs.writeFile('tablas/tabla-'+base+'.txt', data, (err) => {
-    if (err) throw err;
-    console.log('The file has been saved!');
+crearArchivo(base)
+.then( (archivo) =>{
+    console.log(`Archivo creado: ${ archivo }`);
+})
+.catch( (e) => {
+    console.log(e);
 });
