@@ -1,5 +1,7 @@
 // Requireds ever on the first line
 const fs = require('fs');
+const colors = require('colors/safe');
+
 // const fs = require('express');
 // const fs = require('./fs');
 
@@ -13,7 +15,7 @@ let crearArchivo = (base, limite = 10) => {
     return new Promise( (resolve, reject) =>{
         
         if( !Number(base) ){
-            reject('El valor introducido '+ base +' No es un número');
+            reject(colors.red('El valor introducido '+ base +' No es un número'));
             return;
         }
         let data = '';
@@ -24,12 +26,12 @@ let crearArchivo = (base, limite = 10) => {
         
         fs.writeFile('tablas/tabla-'+base+'-al-'+limite+'.txt', data, (err) => {
             if (err) {
-                reject(err)
+                reject(colors.red(err))
             } 
             else{
-                resolve('tabla-'+base+'-al'+limite+'.txt')
+                resolve(colors.blue('tabla-'+base+'-al'+limite+'.txt'))
             }
-            console.log('The file has been saved!');
+            console.log(colors.green('The file has been saved!'));
         });
     });
 }

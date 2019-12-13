@@ -1,5 +1,6 @@
 // const multiplicar = require('./multiplicar/multiplicar.js');
 const argv = require('./config/yargs').argv;
+const colors = require('colors/safe');
 
 const { crearArchivo, listarTabla } = require('./multiplicar/multiplicar.js');
 
@@ -18,7 +19,7 @@ switch( comando ){
         // console.log( argv.base, argv.limite );
         crearArchivo( argv.base, argv.limite )
         .then( (archivo) =>{
-            console.log(`Archivo creado: ${ archivo }`);
+            console.log(colors.yellow('Archivo creado: ') + archivo );
         })
         .catch( (e) => {
             console.log(e);
