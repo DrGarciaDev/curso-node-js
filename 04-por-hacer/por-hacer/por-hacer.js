@@ -36,6 +36,12 @@ const crear = (descripcion) => {
     return porHacer;
 }
 
+const getListado = () => {
+    caragarDB();
+    return listadoPorHacer;
+}
+
 module.exports = {
-    crear
+    crear,
+    getListado
 }
