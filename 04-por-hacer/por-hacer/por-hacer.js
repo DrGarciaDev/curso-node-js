@@ -12,7 +12,7 @@ const guardarDB = () => {
     })
 }
 
-const caragarDB = () => {
+const cargarDB = () => {
     try {
         listadoPorHacer = require('../db/data.json');
     } catch (error) {
@@ -22,7 +22,7 @@ const caragarDB = () => {
 
 const crear = (descripcion) => {
 
-    caragarDB();
+    cargarDB();
 
     let porHacer = {
         descripcion: descripcion,
@@ -37,11 +37,29 @@ const crear = (descripcion) => {
 }
 
 const getListado = () => {
-    caragarDB();
+    cargarDB();
     return listadoPorHacer;
+}
+
+const actualizar = (descripcion, completado = true) => {
+    cargarDB();
+    let index = listadoPorHacer.findIndex( tarea => {
+        return tarea.descripcion === descripcion;
+    })
+
+    if (index >= 0) {
+        listadoPorHacer[index].completado = completado;
+        guardarDB();
+        return true;
+    
+    }else{
+
+        return false;
+    }
 }
 
 module.exports = {
     crear,
-    getListado
+    getListado,
+    actualizar
 }

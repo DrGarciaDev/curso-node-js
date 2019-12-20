@@ -20,10 +20,11 @@ switch (comando) {
             console.log('Estado', tarea.completado);
             console.log('==================='.green)
         }
-        console.log('Mostrar todas las notas por hacer');
+        // console.log('Mostrar todas las notas por hacer');
         break;
     case 'actualizar':
-        console.log('Actualiza una tarea');
+        let actualizado = porHacer.actualizar( argv.descripcion, argv.completado);
+        console.log(actualizado);
         break;
     default:
         console.log('Comando no reconocido');
