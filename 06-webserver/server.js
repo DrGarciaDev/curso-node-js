@@ -4,17 +4,16 @@ const app = express()
 // creando un middleware
 app.use( express.static(__dirname + '/public'));
 
-// app.get('/', function (req, res) {
-//     // res.send('Hello World');
+// EXPRESS HBS engine 
+app.set('view engine', 'hbs');
 
-//     let salida = {
-//         nombre: 'Luis',
-//         edad: 37,
-//         url: req.url
-//     }
-
-//     res.send(salida);
-// })
+app.get('/', function (req, res) {
+    // res.send(salida);
+    res.render('home', {
+        nombre: 'Luis Garcia',
+        anio: new Date().getFullYear()
+    })
+})
 
 // app.get('/data', function (req, res) {
 //     res.send('Hello Data');
