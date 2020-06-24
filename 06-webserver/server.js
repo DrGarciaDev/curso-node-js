@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 const hbs = require('hbs');
+require('./hbs/helpers');
 
 // creando un middleware
 app.use( express.static(__dirname + '/public'));
@@ -13,16 +14,14 @@ app.set('view engine', 'hbs');
 app.get('/', function (req, res) {
     // res.send(salida);
     res.render('home', {
-        nombre: 'Luis Garcia',
-        anio: new Date().getFullYear()
+        nombre: 'luis garcia'
     })
 })
 
 app.get('/about', function (req, res) {
     // res.send(salida);
     res.render('about', {
-        nombre: 'Luis Garcia',
-        anio: new Date().getFullYear()
+        nombre: 'luis garcia'
     })
 })
 
